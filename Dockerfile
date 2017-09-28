@@ -36,12 +36,12 @@ ARG YARN_VERSION
 
 WORKDIR /opt/yarn
 RUN apk add --no-cache --virtual .build-deps-yarn curl gnupg tar \
-  && curl -SL "https://yarnpkg.com/downloads/$YARN_VERSION/yarn-v$YARN_VERSION.tar.gz" | tar -xz --strip-components=1 \
-  # link binaries
-  && ln -s /opt/yarn/bin/yarn /usr/local/bin/yarn \
-  && ln -s /opt/yarn/bin/yarnpkg /usr/local/bin/yarnpkg \
-  # clean apk deps
-  && apk del .build-deps-yarn
+    && curl -SL "https://yarnpkg.com/downloads/$YARN_VERSION/yarn-v$YARN_VERSION.tar.gz" | tar -xz --strip-components=1 \
+    # link binaries
+    && ln -s /opt/yarn/bin/yarn /usr/local/bin/yarn \
+    && ln -s /opt/yarn/bin/yarnpkg /usr/local/bin/yarnpkg \
+    # clean apk deps
+    && apk del .build-deps-yarn
 
 WORKDIR /root
 
