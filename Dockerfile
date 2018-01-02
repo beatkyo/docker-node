@@ -24,7 +24,7 @@ RUN set -x \
 	# make & install
 	&& cd "node-v$NODE_VERSION" \
     && ./configure \
-    && make -j$(getconf _NPROCESSORS_ONLN) \
+    && make \
     && make install \
     # clean
     && cd .. \
